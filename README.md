@@ -1,10 +1,34 @@
 # Folder-Creater
--You can create the folder using this Exe.
--And you can change codes with Python File.
+
+import os
+import time 
 
 
--First Step
-![image](https://github.com/TheFlors/Folder-Creater/assets/120198325/e263468b-5be4-4f0f-bf6e-c23e49490eb0)
-<b>How You can do this?</b>
+def createfolder():
+    print("\nEnter File Extension.")
+    folderpath = input("---->")
 
--Second Step
+    print("\nEnter Folder Name.")
+    foldername = input("---->")
+
+    try:
+        print("\nEnter Folder Count.")
+        foldercount = int(input("---->"))
+    except:
+        print("\nPlease Enter Folder Count!")
+        createfolder()
+    
+    try:
+        i = 1
+        while i <= foldercount:
+            os.chdir(folderpath)
+            os.mkdir(str(i) + " " + foldername)
+            i+=1
+    except:
+        print("\nPlease Enter File Extension!")
+        createfolder()
+
+    print("\nFolders Successfully Created.")
+    createfolder()
+
+createfolder()
